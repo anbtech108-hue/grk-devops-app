@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grk-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: grk-app
+  template:
+    metadata:
+      labels:
+        app: grk-app
+    spec:
+      containers:
+      - name: grk-app
+        image: <dockerhub-username>/grk-app:latest
+        ports:
+        - containerPort: 5000
